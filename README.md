@@ -3,7 +3,7 @@ A simple maze running game using OpenGL for rendering.
 
 <div style="text-align:center">
 
-<img src="cpp_mazerunner.png" width="1900" height="1408" alt="Maze Image"/>
+<img src="cpp_mazerunner.png" width="540" height="400" alt="Maze Image"/>
 
 </div>
 

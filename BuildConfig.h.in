@@ -1,0 +1,10 @@
+//
+// Created by George Zorn on 3/23/21.
+//
+
+#ifndef MAZERUNNER_BUILDCONFIG_H
+#define MAZERUNNER_BUILDCONFIG_H
+
+#define @CMAKE_BUILD_TYPE@
+
+#endif //MAZERUNNER_BUILDCONFIG_H

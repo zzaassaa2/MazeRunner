@@ -11,6 +11,7 @@
 #include "MazeRunner.h"
 
 EscGui::EscGui(GuiType typeIn):type(typeIn) {
+    // Get time that has elapsed
     typeElapsed = std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1>>>(std::chrono::high_resolution_clock::now() - MazeRunner::start_time).count();
 }
 

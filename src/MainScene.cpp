@@ -14,6 +14,9 @@
 #include "PlayerCamera.h"
 #include "Cell.h"
 
+/*
+ * Generates sphere vertices. No index buffer used
+ */
 std::shared_ptr<Model> genTargetSphere(std::shared_ptr<Shader> &shaderIn, float radius, int total){
     std::vector<ImVec4> vertices;
     vertices.reserve(total * total);
@@ -80,13 +83,16 @@ std::shared_ptr<Model> genTargetSphere(std::shared_ptr<Shader> &shaderIn, float 
 }
 
 MainScene::MainScene(Application &parentApp): Scene(parentApp){
+    // Position 0.5,0.5,0.5 is a postion within the center of a maze grid, since grid goes by increments of integers
     camera = std::make_shared<PlayerCamera>(glm::vec3(0.5f, 0.5f, 0.5f));
 
+    // Shader used for maze shading
     auto shader_test = std::make_shared<Shader>("../resources/simple.vert", "../resources/simple.frag");
     float offset = 1;
     float height = 1;
     std::vector<float> data;
     //x + y * cols
+    // Generate maze mesh
     for(int zIn = 0; zIn < MazeRunner::maze->rows; ++zIn){
         for(int xIn = 0; xIn < MazeRunner::maze->cols; ++xIn){
             auto& cell = MazeRunner::maze->grid[zIn * MazeRunner::maze->cols + xIn];
@@ -158,8 +164,6 @@ MainScene::MainScene(Application &parentApp): Scene(parentApp){
     });
     savePointer(event);
     registerKeyEvent(event);
-
-//    parentApp.getCamera()->position = glm::vec3(0.0f, 0.0f, 0.0f);
 }
 
 void MainScene::victory(Application &app) {

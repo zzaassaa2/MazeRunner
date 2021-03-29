@@ -19,6 +19,7 @@ int main(){
 }
 
 MazeGenerator *MazeRunner::maze{nullptr};
+/* Var used to keep track of how long it took to complete the maze, see @MazeRunner::generateMaze */
 std::chrono::time_point<std::chrono::high_resolution_clock> MazeRunner::start_time;
 
 MazeRunner::~MazeRunner() {
@@ -26,8 +27,6 @@ MazeRunner::~MazeRunner() {
 }
 
 void MazeRunner::initialization() {
-//    registerCamera(new PlayerCamera(glm::vec3(0.5f, 0.5f, 0.5f)));
-
     auto scene = std::make_shared<Scene>(*this);
 
     auto test_gui = std::make_shared<OpeningGui>();
